@@ -1,9 +1,7 @@
 INTEGERS WITH PERFECT BITS
 ==========================
 
-A perfect bit integer means that the count of the 1 digits in its binary representation add up to a number that is a square number.
-
-[square number](http://example.com/https://en.wikipedia.org/wiki/Square_number)
+A perfect bit integer means that the count of the 1 digits in its binary representation add up to a number that is a [square number.](http://example.com/https://en.wikipedia.org/wiki/Square_number)
 
 Two examples:
 -------------
@@ -39,7 +37,7 @@ Although easy to understand, the algorithm above is horribly slow.
 To speed things up, the program relies on a formula from discrete mathematics.
 See counting problems in the [wikipedia](https://en.wikipedia.org/wiki/nCr)
 
-In particular, it uses the nCr formula. [Here](https://www.calculatorsoup.com/calculators/discretemathematics/combinations.php)is the definition and an interactive calculator.
+In particular, it uses the nCr formula. [Here ](https://www.calculatorsoup.com/calculators/discretemathematics/combinations.php)is the definition and an interactive calculator.
 
 Think about counting the numbers with 4 perfect bits between 0 and 67.
 Also, know that it is easy to find perfect bits in a power of 2. 
