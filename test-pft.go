@@ -36,13 +36,13 @@ func main() {
 				continue
 			}
 			warn = "MATCH"
-			if k.binti > k.beep {
+			if k.oracle > k.beep {
 				warn = "LESSER"
 			}
-			if k.binti < k.beep {
+			if k.oracle < k.beep {
 				warn = "GREATER"
 			}
-			fmt.Println(k.question, "binti =", k.binti, "beep =", k.beep, warn)
+			fmt.Println(k.question, "oracle =", k.oracle, "beep =", k.beep, warn)
 		}
 	}()
 
@@ -51,7 +51,7 @@ func main() {
 
 type result struct {
 	question	uint64
-	binti			uint64
+	oracle			uint64
 	beep			uint64
 	err				error
 }
@@ -63,7 +63,7 @@ func worker(id int, qty int, results chan<- result) {
 
 	for i := 0; i < qty; i++ {
 		r.question = rand.Uint64()
-		request := fmt.Sprintf("https://perfect-bits.binti.com/?a=0&b=%d", r.question);
+		request := fmt.Sprintf("https://perfect-binary-digits.some-oracle.com/?a=0&b=%d", r.question);
 		resp, err := http.Get(request)
 		if err != nil {
 			r.err = err
@@ -77,7 +77,7 @@ func worker(id int, qty int, results chan<- result) {
 			results <- r
 			continue
 		}
-		r.binti, err = strconv.ParseUint(string(body), 10, 64)
+		r.oracle, err = strconv.ParseUint(string(body), 10, 64)
 		if err != nil {
 			r.err = err
 			results <- r

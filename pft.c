@@ -29,7 +29,7 @@ uint64_t count_manually(uint64_t a, uint64_t b, int nbits);
 void cancel_out(uint64_t *n, int n_len, uint64_t *d, int d_len);
 uint64_t combos(uint64_t n, uint64_t r);
 uint64_t pcount(uint64_t x);
-uint64_t perfect_bits(uint64_t a, uint64_t b);
+uint64_t perfect_binary_digits(uint64_t a, uint64_t b);
 
 
 int main(int argc, char *argv[]) {
@@ -42,7 +42,7 @@ int main(int argc, char *argv[]) {
 		b = strtoull(argv[2], NULL, 10);
 	};
 
-	printf("%llu\n", perfect_bits(a, b));
+	printf("%llu\n", perfect_binary_digits(a, b));
 
 	return 0;
 }
@@ -210,7 +210,7 @@ uint64_t combos(uint64_t n, uint64_t r) {
 	return numerator/denominator;
 };
 
-uint64_t perfect_bits(uint64_t a, uint64_t b) {
+uint64_t perfect_binary_digits(uint64_t a, uint64_t b) {
 
 	if (a > b) return 0;
 	if (a != 0) a--;
