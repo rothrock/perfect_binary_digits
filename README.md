@@ -33,13 +33,15 @@ One way the program could work:
 
 Although easy to understand, the algorithm above is horribly slow.
 
-To speed things up, the program relies on a formula from discrete mathematics.
-See counting problems in the [wikipedia](https://en.wikipedia.org/wiki/nCr)
+To speed things up, the program relies on the nCr formula from discrete mathematics.
+As the program progesses through a given range of numbers, it finds opportunities to apply the formula.
+See counting problems in the [wikipedia](https://en.wikipedia.org/wiki/nCr),
+and refer to this [interactive calculator](https://www.calculatorsoup.com/calculators/discretemathematics/combinations.php).
 
-In particular, it uses the nCr formula to cut through much of that brute force.. [Here](https://www.calculatorsoup.com/calculators/discretemathematics/combinations.php)is the definition and an interactive calculator.
-
+How Does the nCr Formula Help?
+------------------------------
 In order to be included in our count,
-a number's binary representation needs to have 1, 4, 9, 16, 25, 36, 49, or 64 bits set to 1.
+a number's binary representation needs to have exactly 1, 4, 9, 16, 25, 36, 49, or 64 bits set to 1.
 
 Consider the decimal number 64.
 
