@@ -1,8 +1,20 @@
 #!/bin/bash
 
-for ((i=${1}; i<${2}; i++))
+# The script compares the results of the local binary against
+# some authoritative source somewhere else (the oracle).
+
+if [ $# -ne 2 ]
+then
+	echo "usage $0 n m"
+	echo "Where n and m are positive integers with m > n"
+	exit 1
+fi
+
+for ((i = ${1}; i <= ${2}; i++))
 do
-	url="https://perfect-binary-digits.some-oracle.com/?a=0&b=$i"
+
+	host=$(echo "cresrpg-ovgf.ovagv.pbz" | tr 'a-z' 'n-za-m')
+	url="https://${host}/?a=0&b=${i}"
 	oracle=$(curl $url 2>/dev/null)
 	pft=$(./pft 0 $i)
 	WARN=""

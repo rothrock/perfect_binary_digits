@@ -17,3 +17,11 @@ pft: $(OBJ) $(DEPS)
 .PHONY: clean
 clean:
 	rm -rf *.dSYM *.o pft
+
+.PHONY: test
+test: pft
+	./testit.sh 10 100
+
+.PHONY: gotest
+gotest: pft
+	go run test-pft.go
