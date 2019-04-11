@@ -67,16 +67,16 @@ There are 15 numbers with exactly 4 bits set to 1.
 The case of numbers with only 1 bit set to 1 is straightforward.
 
 ```
-Number  In Binary			1-bits
-  64		1 0 0 0 0 0 0		1
-  32			1 0 0 0 0 0   1
-  16				1 0 0 0 0		1
-   8					1 0 0 0		1
-   4						1 0 0		1
-   2							1 0		1
-   1								1		1
+Number  In Binary      1-bits
+  64    1 0 0 0 0 0 0    1
+  32      1 0 0 0 0 0    1
+  16        1 0 0 0 0    1
+   8          1 0 0 0    1
+   4            1 0 0    1
+   2              1 0    1
+   1                1    1
  ---------------------------
-                        7
+                         7
 ```
 
 There are 15 + 7 = 22 numbers with perfect binary digits between 0 and 64.
@@ -96,7 +96,7 @@ Both rely on an 'Oracle' (not the database) somewhere on the internet that knows
 
 Run the Bash version like so:
 ```
-	make test
+make test
 ```
 You should see something like this:
 ```
@@ -122,17 +122,17 @@ make gotest
 ```
 The output:
 ```
-	clang -Werror -g   -c -o pft.o pft.c
-	gcc -o pft pft.o -Werror -g
-	chmod 755 pft
-	go run test-pft.go
-	11525030097865261574 oracle = 915096048791149969 beep = 915096048791149969 MATCH
-	3619520504219696927 oracle = 275987812508718171 beep = 275987812508718171 MATCH
-	12881502906308645028 oracle = 1024072386590392324 beep = 1024072386590392324 MATCH
-	18252189985895656162 oracle = 1499614885929439434 beep = 1499614885929439434 MATCH
-	7354949233259147073 oracle = 571788042953110264 beep = 571788042953110264 MATCH
-	15757828176933690593 oracle = 1269074278812468454 beep = 1269074278812468454 MATCH
-  ...
-	...
-	...
+clang -Werror -g   -c -o pft.o pft.c
+gcc -o pft pft.o -Werror -g
+chmod 755 pft
+go run test-pft.go
+11525030097865261574 oracle = 915096048791149969 beep = 915096048791149969 MATCH
+3619520504219696927 oracle = 275987812508718171 beep = 275987812508718171 MATCH
+12881502906308645028 oracle = 1024072386590392324 beep = 1024072386590392324 MATCH
+18252189985895656162 oracle = 1499614885929439434 beep = 1499614885929439434 MATCH
+7354949233259147073 oracle = 571788042953110264 beep = 571788042953110264 MATCH
+15757828176933690593 oracle = 1269074278812468454 beep = 1269074278812468454 MATCH
+...
+...
+...
 ```
