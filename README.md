@@ -17,10 +17,10 @@ Three is not a square number. (sqrt(3) ~1.732),
 so seven is not a perfect binary digit integer.
 
 This program finds the *number* of perfect binary digits between two positive integers. 
-
-	./pft 1 7
-	3
-
+```
+./pft 1 7
+3
+```
 
 How the program works
 ---------------------
@@ -55,33 +55,39 @@ This means that there are 6 slots for sets of 4 bits to slosh around in.
 
 Apply the nCr combinations formula. We have 4 bits in 6 possible places.
 
-	C(n, r) = 
-  n! / (r! * (n - r)!)
+```
+C(n, r) = 
+n! / (r! * (n - r)!)
 
-	6! / (4! * (6 - 4)!) = 15
+6! / (4! * (6 - 4)!) = 15
+```
 
 There are 15 numbers with exactly 4 bits set to 1.
 
 The case of numbers with only 1 bit set to 1 is straightforward.
 
-	Number	In Binary			1-bits
-		64		1 0 0 0 0 0 0		1
-		32			1 0 0 0 0 0   1
-		16				1 0 0 0 0		1
-		 8					1 0 0 0		1
-		 4						1 0 0		1
-		 2							1 0		1
-		 1								1		1
-	 ---------------------------
-	                        7
+```
+Number  In Binary			1-bits
+  64		1 0 0 0 0 0 0		1
+  32			1 0 0 0 0 0   1
+  16				1 0 0 0 0		1
+   8					1 0 0 0		1
+   4						1 0 0		1
+   2							1 0		1
+   1								1		1
+ ---------------------------
+                        7
+```
 
 There are 15 + 7 = 22 numbers with perfect binary digits between 0 and 64.
 
 Larger numbers are broken up into an additive chain of decreasing powers of two and each link evaluated.
 
-	113 = 64 + 32 + 16 + 1.
-	127 = 64 + 32 + 16 + 8 + 4 + 2 + 1.
-  129 = 128 + 1.
+```
+113 = 64 + 32 + 16 + 1.
+127 = 64 + 32 + 16 + 8 + 4 + 2 + 1.
+129 = 128 + 1.
+```
 
 Testing
 -------
@@ -89,32 +95,33 @@ Included are two tests. One in Go and the other in Bash.
 Both rely on an 'Oracle' (not the database) somewhere on the internet that knows the correct answer.
 
 Run the Bash version like so:
-
+```
 	make test
-
+```
 You should see something like this:
-	clang -Werror -g   -c -o pft.o pft.c
-	gcc -o pft pft.o -Werror -g 
-	chmod 755 pft
-	./testit.sh 10 100
-	10  oracle=4  pft=4   
-	11  oracle=4  pft=4   
-	12  oracle=4  pft=4   
-	13  oracle=4  pft=4   
-	14  oracle=4  pft=4   
-	15  oracle=5  pft=5   
-	16  oracle=6  pft=6   
-	17  oracle=6  pft=6   
-  ...
-	...
-	...
-
+```
+clang -Werror -g   -c -o pft.o pft.c
+gcc -o pft pft.o -Werror -g 
+chmod 755 pft
+./testit.sh 10 100
+10  oracle=4  pft=4   
+11  oracle=4  pft=4   
+12  oracle=4  pft=4   
+13  oracle=4  pft=4   
+14  oracle=4  pft=4   
+15  oracle=5  pft=5   
+16  oracle=6  pft=6   
+17  oracle=6  pft=6   
+...
+...
+...
+```
 The Go version will try 3,000,000,000 random numbers using 40 goroutines.
-
-	 make gotest
-
+```
+make gotest
+```
 The output:
-
+```
 	clang -Werror -g   -c -o pft.o pft.c
 	gcc -o pft pft.o -Werror -g
 	chmod 755 pft
@@ -128,4 +135,4 @@ The output:
   ...
 	...
 	...
-
+```
